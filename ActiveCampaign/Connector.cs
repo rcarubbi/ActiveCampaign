@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Text.RegularExpressions;
@@ -67,7 +68,43 @@ namespace ActiveCampaign
 
                 if (null == responseXml.SelectSingleNode("//result_code"))
                     throw new Exception("The XML returned was not a valid ActiveCampaign response");
+                // TODO: Make sure the result code is valid.
             }
+        }
+
+        /// <summary>
+        /// Executes an API request.
+        /// </summary>
+        /// <remarks>
+        /// Use the GetFormHtml function instead if you want to execute the "form_html" method.
+        /// </remarks>
+        /// <exception cref="ArgumentException"></exception>
+        /// <returns>An XmlDocument representing the response from the ActiveCampaign REST API.</returns>
+        public XmlDocument ExecuteRequest(string method, IEnumerable<string> postParameters)
+        {
+            if (string.IsNullOrEmpty(method))
+                throw new ArgumentException("A valid ActiveCampaign API method was not specified", "method");
+            if ("form_html" == method)
+                throw new ArgumentException("Use the GetFormHtml function on the Connector class to get form HTML", "method");
+
+            // TODO: Implement.
+
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Retrieves the form HTML for a subscribe page for Active
+        /// </summary>
+        /// <exception cref="ArgumentException"></exception>
+        /// <returns>A string containing the form details or subscription form HTML for the provided form ID.</returns>
+        public string GetFormHtml(int formId, bool returnSubscriptionHtml = false)
+        {
+            if (0 == formId)
+                throw new ArgumentException("A valid form ID was not specified", "formId");
+
+            // TODO: Implement.
+
+            throw new NotImplementedException();
         }
     }
 }
