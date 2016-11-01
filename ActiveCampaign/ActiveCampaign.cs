@@ -16,9 +16,20 @@ namespace ActiveCampaign
             StringBuilder strParams = new StringBuilder();
             AppendParam(strParams, "email={0}", input.Email);
             AppendParam(strParams, "&first_name={0}", input.FirstName);
-            AppendParam(strParams, "&last_name={0}", input.LastName);
-            AppendParam(strParams, "&p[{0}]={0}", input.ListId);
-            AppendParam(strParams, "&tags={0}", input.Tags);
+            if (!string.IsNullOrWhiteSpace(input.LastName))
+            {
+                AppendParam(strParams, "&last_name={0}", input.LastName);
+            }
+
+            if (!string.IsNullOrWhiteSpace(input.ListId))
+            {
+                AppendParam(strParams, "&p[{0}]={0}", input.ListId);
+            }
+
+            if (!string.IsNullOrWhiteSpace(input.Tags))
+            {
+                AppendParam(strParams, "&tags={0}", input.Tags);
+            }
 
             foreach (var item in input.CustomFields)
             {
@@ -42,9 +53,20 @@ namespace ActiveCampaign
             StringBuilder strParams = new StringBuilder();
             AppendParam(strParams, "email={0}", input.Email);
             AppendParam(strParams, "&first_name={0}", input.FirstName);
-            AppendParam(strParams, "&last_name={0}", input.LastName);
-            AppendParam(strParams, "&p[{0}]={0}", input.ListId);
-            AppendParam(strParams, "&tags={0}", input.Tags);
+            if (!string.IsNullOrWhiteSpace(input.LastName))
+            {
+                AppendParam(strParams, "&last_name={0}", input.LastName);
+            }
+
+            if (!string.IsNullOrWhiteSpace(input.ListId))
+            {
+                AppendParam(strParams, "&p[{0}]={0}", input.ListId);
+            }
+
+            if (!string.IsNullOrWhiteSpace(input.Tags))
+            {
+                AppendParam(strParams, "&tags={0}", input.Tags);
+            }
            
             foreach (var item in input.CustomFields)
             {
