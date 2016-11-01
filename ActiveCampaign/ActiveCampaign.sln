@@ -1,7 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 2012 for Windows Desktop
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActiveCampaign", "ActiveCampaign.csproj", "{8192C3C2-3CCB-430E-AD61-83220C55CEAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActiveCampaign.Tests", "..\ActiveCampaign.Tests\ActiveCampaign.Tests.csproj", "{13ADDD6C-4CD0-4B6D-9708-658FECA9029D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +17,10 @@ Global
 		{8192C3C2-3CCB-430E-AD61-83220C55CEAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8192C3C2-3CCB-430E-AD61-83220C55CEAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8192C3C2-3CCB-430E-AD61-83220C55CEAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13ADDD6C-4CD0-4B6D-9708-658FECA9029D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13ADDD6C-4CD0-4B6D-9708-658FECA9029D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13ADDD6C-4CD0-4B6D-9708-658FECA9029D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13ADDD6C-4CD0-4B6D-9708-658FECA9029D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

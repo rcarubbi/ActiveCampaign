@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Specialized;
 using System.IO;
 using System.Net;
 using System.Text;
@@ -29,22 +30,18 @@ namespace ActiveCampaign
 
         internal dynamic Post(ActiveCampaignMethods method, string parameters)
         {
-            var request = (HttpWebRequest)WebRequest.Create(_apiUrl + $"&api_action={method}");
-            request.ServicePoint.Expect100Continue = false;
-            request.Method = "POST";
-            request.ContentType = "application/x-www-form-urlencoded";
-            request.Expect = "application/json";
-
-            ASCIIEncoding encoder = new ASCIIEncoding();
-            byte[] data = encoder.GetBytes(parameters);
-
-            request.ContentLength = data.Length;
-            request.GetRequestStream().Write(data, 0, data.Length);
-
-            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-            using (StreamReader sr = new StreamReader(response.GetResponseStream()))
+            using (var client = new WebClient())
             {
-                var returnedObject = Json.Decode(sr.ReadToEnd());
+                var values = new NameValueCollection();
+                var pairs = parameters.Split('&');
+                foreach (var pair in pairs)
+                {
+                    var parts = pair.Split('=');
+                    values[parts[0]] = parts[1];
+                }
+                var response = client.UploadValues(_apiUrl + $"&api_action={method}", values);
+                var responseString = Encoding.Default.GetString(response);
+                var returnedObject = Json.Decode(responseString);
                 return returnedObject;
             }
         }
@@ -54,7 +51,7 @@ namespace ActiveCampaign
             var request = (HttpWebRequest)WebRequest.Create(_apiUrl + $"&api_action={method}");
             request.ServicePoint.Expect100Continue = false;
             request.Method = "GET";
-
+            request.Timeout = 10000;
             using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
             using (StreamReader sr = new StreamReader(response.GetResponseStream()))
             {
