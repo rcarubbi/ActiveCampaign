@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActiveCampaign", "ActiveCampaign.csproj", "{8192C3C2-3CCB-430E-AD61-83220C55CEAA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActiveCampaign", ".\ActiveCampaign\ActiveCampaign.csproj", "{8192C3C2-3CCB-430E-AD61-83220C55CEAA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActiveCampaign.Tests", "..\ActiveCampaign.Tests\ActiveCampaign.Tests.csproj", "{13ADDD6C-4CD0-4B6D-9708-658FECA9029D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActiveCampaign.Tests", ".\ActiveCampaign.Tests\ActiveCampaign.Tests.csproj", "{13ADDD6C-4CD0-4B6D-9708-658FECA9029D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
